@@ -1,0 +1,87 @@
+/* Estilos para los bloques de código */
+.code-block-wrapper {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.code-block-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #2d2d2d;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.code-block-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding: 0;
+}
+
+.code-block-wrapper code {
+  display: block;
+  padding: 40px 24px 16px;
+  background: #282c34;
+  color: #abb2bf;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* Tokens de Prism.js */
+.token.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.token.keyword {
+  color: #c678dd;
+}
+
+.token.string {
+  color: #98c379;
+}
+
+.token.number {
+  color: #d19a66;
+}
+
+.token.function {
+  color: #61afef;
+}
+
+.token.operator {
+  color: #56b6c2;
+}
+
+.token.punctuation {
+  color: #7f848e;
+}
+
+.token.property {
+  color: #e06c75;
+}
+
+.token.class-name {
+  color: #e5c07b;
+} 

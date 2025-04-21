@@ -1,0 +1,130 @@
+/* Estilos para los bloques de código */
+.code-block-wrapper {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #282c34;
+}
+
+/* Barra superior con los círculos */
+.code-block-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: #21252b;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Círculos decorativos */
+.code-block-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+  z-index: 1;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
+
+.code-block-wrapper code {
+  display: block;
+  padding: 40px 20px 20px;
+  margin-top: 0;
+  background: transparent !important;
+  color: #abb2bf;
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* Tokens de Prism.js */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7f848e;
+  font-style: italic;
+}
+
+.token.keyword,
+.token.selector,
+.token.important,
+.token.atrule {
+  color: #c678dd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value {
+  color: #98c379;
+}
+
+.token.number,
+.token.boolean {
+  color: #d19a66;
+}
+
+.token.function,
+.token.method {
+  color: #61afef;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #56b6c2;
+}
+
+.token.punctuation {
+  color: #abb2bf;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol {
+  color: #e06c75;
+}
+
+.token.class-name,
+.token.maybe-class-name {
+  color: #e5c07b;
+}
+
+.token.variable,
+.token.parameter {
+  color: #e06c75;
+}
+
+/* Ajustes adicionales */
+.code-block-wrapper ::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block-wrapper ::-webkit-scrollbar-track {
+  background: #282c34;
+}
+
+.code-block-wrapper ::-webkit-scrollbar-thumb {
+  background: #4b5263;
+  border-radius: 4px;
+}
+
+.code-block-wrapper ::-webkit-scrollbar-thumb:hover {
+  background: #5c6370;
+} 
