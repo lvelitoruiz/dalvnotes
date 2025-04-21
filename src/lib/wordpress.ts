@@ -303,13 +303,44 @@ export async function getInspirationPosts() {
 
 export async function getPosts(category?: string) {
   try {
-    const query = `
-      query GetPosts($category: String) {
+    console.log('Fetching posts from WordPress API', category ? `for category: ${category}` : 'for all categories');
+    
+    const query = category ? `
+      query GetPostsByCategory($category: String!) {
         posts(
           first: 50,
           where: { 
             orderby: { field: DATE, order: DESC }
-            ${category ? `categoryName: $category` : ''}
+            categoryName: $category
+          }
+        ) {
+          nodes {
+            id
+            title
+            date
+            excerpt
+            slug
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+            featuredImage {
+              node {
+                sourceUrl
+                altText
+              }
+            }
+          }
+        }
+      }
+    ` : `
+      query GetAllPosts {
+        posts(
+          first: 50,
+          where: { 
+            orderby: { field: DATE, order: DESC }
           }
         ) {
           nodes {
@@ -338,6 +369,8 @@ export async function getPosts(category?: string) {
     console.log('GraphQL Query:', query);
     console.log('Category variable:', category);
     
+    const variables = category ? { category } : undefined;
+    
     const res = await fetch(WORDPRESS_API_URL!, {
       method: 'POST',
       headers: {
@@ -345,7 +378,7 @@ export async function getPosts(category?: string) {
       },
       body: JSON.stringify({
         query,
-        variables: { category }
+        variables
       }),
     });
 

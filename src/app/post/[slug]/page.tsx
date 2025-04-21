@@ -19,7 +19,7 @@ export default async function PostPage({ params }: PageProps) {
   }
 
   return (
-    <article className="container mx-auto px-4 py-20">
+    <article className="w-full mx-auto px-0 pb-12">
       <PostHeader 
         title={post.title}
         date={post.date}

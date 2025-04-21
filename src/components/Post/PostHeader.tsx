@@ -15,7 +15,7 @@ export const PostHeader = ({ title, date, category, author, featuredImage }: Pos
   return (
     <section>
       {featuredImage && (
-        <div className="relative w-full h-[400px]">
+        <div className="relative w-full h-[500px]">
           <Image
             src={featuredImage.sourceUrl}
             alt={featuredImage.altText || title}
