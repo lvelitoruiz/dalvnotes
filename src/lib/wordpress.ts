@@ -540,4 +540,47 @@ export async function getPostBySlug(slug: string) {
     console.error('Error fetching post:', error);
     return null;
   }
+}
+
+export async function testGraphQLSchema() {
+  try {
+    const response = await fetch(WORDPRESS_API_URL!, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `
+          query IntrospectionQuery {
+            __schema {
+              types {
+                name
+                description
+              }
+              mutationType {
+                fields {
+                  name
+                  description
+                  args {
+                    name
+                    type {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `
+      }),
+    });
+
+    const data = await response.json();
+    console.log('Available mutations:', data.data?.__schema?.mutationType?.fields);
+    console.log('Available types:', data.data?.__schema?.types);
+    return data;
+  } catch (error) {
+    console.error('Error testing GraphQL schema:', error);
+    return null;
+  }
 } 

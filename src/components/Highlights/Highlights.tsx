@@ -31,6 +31,16 @@ interface FeaturedPostProps {
   slug: string;
 }
 
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  });
+  return formatter.format(date).toUpperCase();
+}
+
 function FeaturedPost({ title, date, category, imageUrl, excerpt, slug }: FeaturedPostProps) {
   return (
     <Link href={`/posts/${slug}`} className="group">
@@ -52,8 +62,10 @@ function FeaturedPost({ title, date, category, imageUrl, excerpt, slug }: Featur
         />
       </div>
       <div className="mt-5 flex-col justify-between">
-        <p className="text-white text-xl m-0 font-thin min-h-[100px]" 
-           dangerouslySetInnerHTML={{ __html: excerpt }}></p>
+        <div 
+          className="text-white text-xl m-0 font-thin min-h-[100px]" 
+          dangerouslySetInnerHTML={{ __html: excerpt }}
+        />
         <div className="flex justify-end">
           <span className="flex items-center gap-1">
             <span className="text-white font-semibold">CONTINUE</span>
@@ -78,11 +90,7 @@ export async function Highlights() {
 
   const featuredPosts: FeaturedPostProps[] = posts.map((post: WordPressPost) => ({
     title: post.title,
-    date: new Date(post.date).toLocaleDateString('es-ES', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric'
-    }).toUpperCase(),
+    date: formatDate(post.date),
     category: post.categories?.nodes[0]?.name.toUpperCase() || 'UNCATEGORIZED',
     imageUrl: post.featuredImage?.node?.sourceUrl || '/img/default-post.jpg',
     excerpt: post.excerpt || '',
