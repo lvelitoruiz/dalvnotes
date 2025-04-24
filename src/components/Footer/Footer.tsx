@@ -1,4 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
+import { Modal } from '../ui/Modal';
+import { ContactForm } from '../ContactForm/ContactForm';
+import Link from 'next/link';
 
 interface SocialLinkProps {
   icon: string;
@@ -9,9 +15,10 @@ function SocialLink({ icon, href }: SocialLinkProps) {
   return (
     <a href={href} className="w-10 h-10 bg-[#b2ada6] rounded-full flex items-center justify-center text-white hover:bg-[#ff2c72] transition-colors">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        {icon === 'facebook' && <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />}
+        {icon === 'github' && <><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></>}
         {icon === 'x' && <><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-9.248M14.496 7l-4.969 6.783M8.267 4h11.733" /></>}
-        {icon === 'instagram' && <><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></>}
+        {icon === 'linkedin' && <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>}
+        {icon === 'website' && <><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></>}
       </svg>
     </a>
   );
@@ -24,7 +31,7 @@ interface RSSLinkProps {
 
 function RSSLink({ text, href }: RSSLinkProps) {
   return (
-    <a href={href} className="flex items-center gap-2 text-[#161e24] hover:text-[#FF80AA] transition-colors">
+    <a href={href} target="_blank" className="flex items-center gap-2 text-[#161e24] hover:text-[#FF80AA] transition-colors">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 11a9 9 0 0 1 9 9" />
         <path d="M4 4a16 16 0 0 1 16 16" />
@@ -36,10 +43,12 @@ function RSSLink({ text, href }: RSSLinkProps) {
 }
 
 export function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const socialLinks: SocialLinkProps[] = [
-    { icon: 'facebook', href: '#' },
-    { icon: 'x', href: '#' },
-    { icon: 'instagram', href: '#' }
+    { icon: 'github', href: 'https://github.com/lvelitoruiz' },
+    { icon: 'linkedin', href: 'https://linkedin.com/in/luisvelito' },
+    { icon: 'website', href: 'https://luisvelito.com' }
   ];
 
   const rssLinks: RSSLinkProps[] = [
@@ -65,26 +74,30 @@ export function Footer() {
                 />
               </div>
               <div className="flex items-start flex-col">
-                <h1 className="text-[30px] text-[#c6c4c0] font-thin mb-5">Hi I&apos;m Luis,</h1>
+                <h1 className="text-[30px] text-[#c6c4c0] font-thin mb-5">Hola soy Luis,</h1>
                 <p className="text-[20px] text-[#161e24] font-light leading-relaxed">
-                  I&apos;m a <a href="/about" className="text-[#FF80AA]">fullstack developer</a> and tech enthusiast based in Lima, Perú. This personal space reflects my journey through <a href="/posts/development" className="text-[#FF80AA]">code</a>, <a href="/posts/design" className="text-[#FF80AA]">design</a>, and life—always driven by a passion for learning and sharing what I know. I&apos;m into clean, thoughtful interfaces, clever architecture, and soulful ideas that make tech more human.
+                  Soy un <Link href="/about" className="text-[#FF80AA]">desarrollador fullstack</Link> y entusiasta de la tecnología basado en Lima, Perú. Este espacio personal refleja mi viaje a través del <Link href="/posts/development" className="text-[#FF80AA]">código</Link>, el <Link href="/posts/design" className="text-[#FF80AA]">diseño</Link> y la vida—siempre impulsado por la pasión de aprender y compartir lo que sé. Me apasionan las interfaces limpias, la arquitectura inteligente y las ideas significativas que hacen que la tecnología sea más humana.
                 </p>
                 <p className="text-[20px] text-[#161e24] font-light mb-5">
-                  Get to know me! <a href="#" className="text-[#FF80AA] inline-flex items-center">About myself 
+                  <a href="https://luisvelito.com/" target="_blank" className="text-[#FF80AA] inline-flex items-center">Conóceme!  
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 ml-1">
                       <path d="M5 12h14"/>
                       <path d="m12 5 7 7-7 7"/>
                     </svg>
                   </a>
                 </p>
-                <a className="flex items-center justify-center text-[#b2ada6] text-[20px] font-light gap-1 h-[56px] px-10 rounded-md border-2 border-[#e7e3de] hover:bg-[#ff2c72] hover:text-white hover:border-[#ff2c72] transition-colors duration-200 group" href="">
-                  <span>Have a question?</span>
-                  <span className="text-[#FF80AA] group-hover:text-white">Get In Touch</span>
+                <a
+                  className="flex items-center justify-center text-[#b2ada6] text-[20px] font-light gap-1 h-[56px] px-10 rounded-md border-2 border-[#e7e3de] hover:bg-[#ff2c72] hover:text-white hover:border-[#ff2c72] transition-colors duration-200 group"
+                  onClick={() => setIsModalOpen(true)}
+                  href="#"
+                >
+                  <span>¿Tienes alguna pregunta?</span>
+                  <span className="text-[#FF80AA] group-hover:text-white">Contáctame!</span>
                 </a>
               </div>
             </div>
             <div className="mt-12 lg:pl-[154px]">
-              <h1 className="text-sm text-[#c6c4c0] font-semibold mb-5">FIND ME ON!</h1>
+              <h1 className="text-sm text-[#c6c4c0] font-semibold mb-5">Encuéntrame en:</h1>
               <div className="flex gap-4">
                 {socialLinks.map((link, index) => (
                   <SocialLink key={index} {...link} />
@@ -102,6 +115,14 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="How can I help you?"
+      >
+        <ContactForm onSuccess={() => setIsModalOpen(false)} />
+      </Modal>
     </footer>
   );
 } 
