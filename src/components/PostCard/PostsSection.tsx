@@ -18,7 +18,7 @@ export function PostsSection() {
           href="/posts"
           className="inline-flex items-center justify-center px-8 h-[63px] border-2 rounded-md text-[20px] font-bold border-[#161e24] text-[#161e24] hover:bg-[#ff2c72] hover:text-white hover:border-[#ff2c72] transition-colors duration-200"
         >
-          <span>MORE ARTICLES</span>
+          <span>MÁS ARTÍCULOS</span>
         </Link>
       </div>
     </section>

@@ -46,7 +46,7 @@ export async function RecommendedPosts() {
   return (
     <div className="flex flex-col gap-1">
       <div className="bg-[#fbfaf8] p-4 text-center">
-        <h3 className="text-[15px] text-[#161e24] font-bold">— RECOMMENDED —</h3>
+        <h3 className="text-[15px] text-[#161e24] font-bold">— RECOMENDADOS —</h3>
       </div>
       <div className="flex flex-col gap-1">
         {recommendedPosts.map((post: {

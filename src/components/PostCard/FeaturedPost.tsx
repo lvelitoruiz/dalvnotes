@@ -54,7 +54,7 @@ export function FeaturedPost({
         </p>
         <div className="flex justify-end">
           <span className="flex items-center gap-1">
-            <span className="font-semibold uppercase" style={{ color }}>CONTINUE</span>
+            <span className="font-semibold uppercase" style={{ color }}>CONTINUAR</span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="24" 

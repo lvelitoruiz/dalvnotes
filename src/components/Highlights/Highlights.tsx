@@ -33,7 +33,7 @@ interface FeaturedPostProps {
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  const formatter = new Intl.DateTimeFormat('en-US', {
+  const formatter = new Intl.DateTimeFormat('es-ES', {
     day: 'numeric',
     month: 'short',
     year: 'numeric'
@@ -68,7 +68,7 @@ function FeaturedPost({ title, date, category, imageUrl, excerpt, slug }: Featur
         />
         <div className="flex justify-end">
           <span className="flex items-center gap-1">
-            <span className="text-white font-semibold">CONTINUE</span>
+            <span className="text-white font-semibold">CONTINUAR</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
               <path d="M5 12h14"/>
               <path d="m12 5 7 7-7 7"/>
@@ -101,8 +101,8 @@ export async function Highlights() {
     <section>
       <div className="bg-[#161e24]">
         <div className="container mx-auto px-4 py-5">
-          <h2 className="text-white text-4xl font-bold">Highlights</h2>
-          <p className="text-[#ffffffbf] text-xl font-light">on design process, tutorials, and graphic & web design</p>
+          <h2 className="text-white text-4xl font-bold">Destacados</h2>
+          <p className="text-[#ffffffbf] text-xl font-light">Procesos de diseño, tutoriales y diseño gráfico y web</p>
         </div>
       </div>
       <div className="bg-[#485354]">
@@ -115,7 +115,7 @@ export async function Highlights() {
           <div className="text-center mt-12">
             <Link href="/posts"
               className="flex inline-flex items-center justify-center px-8 h-[63px] border-2 rounded-md text-[20px] font-bold border-white text-white hover:bg-[#ff2c72] hover:text-white hover:border-[#ff2c72] transition-colors duration-200">
-              <span>MORE ARTICLES</span>
+              <span>MÁS ARTÍCULOS</span>
             </Link>
           </div>
         </div>

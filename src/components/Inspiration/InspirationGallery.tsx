@@ -68,8 +68,8 @@ export async function InspirationGallery() {
     <section>
       <div className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center justify-center gap-3 pb-16">
-          <h2 className="text-[30px] text-[#b2ada6] uppercase font-bold">Reenergise your</h2>
-          <div className="relative w-full lg:w-fit lg:max-w-[768px] aspect-[3/1]">
+          <h2 className="text-[30px] text-[#b2ada6] uppercase font-bold">Alimenta tu</h2>
+          <div className="relative w-full lg:w-fit lg:max-w-[768px] aspect-[3/1] h-[200px]">
             <Image
               src="/img/inspiration.png"
               alt="Inspiration"

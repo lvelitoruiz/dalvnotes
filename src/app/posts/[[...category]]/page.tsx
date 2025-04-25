@@ -31,11 +31,12 @@ const categoryColors: { [key: string]: string } = {
   'default': '#7e4b71'
 };
 
-interface PageProps {
+type PageProps = {
   params: {
     category?: string[];
   };
-}
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 export default async function PostsPage({ params }: PageProps) {
   const category = params.category?.[0];
