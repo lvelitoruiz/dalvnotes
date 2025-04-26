@@ -31,6 +31,14 @@ const categoryColors: { [key: string]: string } = {
   'default': '#7e4b71'
 };
 
+// Mapa de nombres de categorías (inglés a español)
+const categoryNames: { [key: string]: string } = {
+  'articles': 'Artículos',
+  'inspiration': 'Inspiración',
+  'tutorial': 'Tutoriales',
+  'default': 'Otros'
+};
+
 type PageProps = {
   params: {
     category?: string[];
@@ -86,12 +94,12 @@ export default async function PostsPage({ params }: PageProps) {
   }));
 
   const title = category 
-    ? `${decodeURIComponent(category).charAt(0).toUpperCase() + decodeURIComponent(category).slice(1)} Posts`
-    : 'All Posts';
+    ? categoryNames[category.toLowerCase()] || categoryNames['default']
+    : 'Todos los posts';
     
   const description = category
-    ? `Explore our collection of ${decodeURIComponent(category).toLowerCase()} related articles and tutorials`
-    : 'Discover articles and tutorials about design, development, and more';
+    ? `Explora nuestra colección de ${categoryNames[category.toLowerCase()] || category.toLowerCase()}`
+    : 'Descubre artículos y tutoriales sobre diseño, desarrollo y más';
 
   return (
     <main className="min-h-screen bg-background">

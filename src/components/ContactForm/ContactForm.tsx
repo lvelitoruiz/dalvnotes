@@ -79,7 +79,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div>
-        <label className="block text-[#161e24] mb-2">Your name <span className="text-[#ff2c72]">*</span></label>
+        <label className="block text-[#161e24] mb-2">Tu nombre <span className="text-[#ff2c72]">*</span></label>
         <input
           type="text"
           name="name"
@@ -92,7 +92,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
       </div>
 
       <div>
-        <label className="block text-[#161e24] mb-2">Your email <span className="text-[#ff2c72]">*</span></label>
+        <label className="block text-[#161e24] mb-2">Tu email <span className="text-[#ff2c72]">*</span></label>
         <input
           type="email"
           name="email"
@@ -105,7 +105,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
       </div>
 
       <div>
-        <label className="block text-[#161e24] mb-2">Subject <span className="text-[#ff2c72]">*</span></label>
+        <label className="block text-[#161e24] mb-2">Asunto <span className="text-[#ff2c72]">*</span></label>
         <input
           type="text"
           name="subject"
@@ -117,7 +117,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
       </div>
 
       <div>
-        <label className="block text-[#161e24] mb-2">Your message (optional)</label>
+        <label className="block text-[#161e24] mb-2">Tu mensaje (opcional)</label>
         <textarea
           name="message"
           value={formData.message}
@@ -134,7 +134,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           status === 'loading' ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#e62665]'
         }`}
       >
-        <span>{status === 'loading' ? 'Sending...' : 'Submit'}</span>
+        <span>{status === 'loading' ? 'Enviando...' : 'Enviar'}</span>
       </button>
 
       {message && (

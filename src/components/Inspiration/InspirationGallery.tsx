@@ -90,7 +90,7 @@ export async function InspirationGallery() {
             />
           ))}
         </div>
-        <MoreButton text="MORE INSPIRATION" href="/posts/inspiration" variant="dark" />
+        <MoreButton text="MÁS INSPIRACIÓN" href="/posts/inspiration" variant="dark" />
       </div>
     </section>
   );

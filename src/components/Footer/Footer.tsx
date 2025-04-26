@@ -119,7 +119,7 @@ export function Footer() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="How can I help you?"
+        title="¿Cómo puedo ayudarte?"
       >
         <ContactForm onSuccess={() => setIsModalOpen(false)} />
       </Modal>

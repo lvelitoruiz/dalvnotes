@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useState } from 'react';
 
 export function Newsletter() {
@@ -62,11 +62,11 @@ export function Newsletter() {
       <div className="flex items-center justify-center">
         <div className="max-w-[768px]">
           <div className="flex flex-col gap-6 text-center">
-            <p className="text-[#161e24] font-semibold">-- Rather use email? --</p>
+            <p className="text-[#161e24] font-semibold">-- ¿Quieres recibir mi newsletter? --</p>
             <h2 className="text-[38px] text-[#161e24] font-thin uppercase">
-              Never miss out on <span className="text-[#ff2c72] font-semibold">learning</span>
+              No te pierdas de <span className="text-[#ff2c72] font-semibold">aprender:</span>
             </h2>
-            <div className="relative w-full aspect-[2/1]">
+            {/* <div className="relative w-full aspect-[2/1]">
               <Image
                 src="/img/email.webp"
                 alt="email"
@@ -74,14 +74,14 @@ export function Newsletter() {
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, 768px"
               />
-            </div>
+            </div> */}
             <p className="text-[#161e24] font-light py-10">
-              My monthly newsletter comes with a dosis of inspiration, a curated downloadable swatches color palette, quick design tips and the same resources I learn from.
+              Mi newsletter mensual viene con una dosis de inspiración, recursos para descargar, consejos de desarrollo rápidos y los mismos recursos que aprendo.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row items-center gap-4">
               <input
                 name="your-email"
-                placeholder="Enter your email address"
+                placeholder="Ingresa tu email"
                 className="w-full h-[58px] px-4 rounded-md border-b rounded-none outline-none border-[#e7e3de]"
                 type="email"
                 value={email}
@@ -95,7 +95,7 @@ export function Newsletter() {
                   status === 'loading' ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#e62665]'
                 }`}
               >
-                <span>{status === 'loading' ? 'Sending...' : 'JOIN & LEARN'}</span>
+                <span>{status === 'loading' ? 'Enviando...' : 'UNIRME'}</span>
               </button>
             </form>
             {message && (

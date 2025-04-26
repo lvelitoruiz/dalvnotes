@@ -63,7 +63,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               type="search"
               name="q"
               defaultValue={searchTerm}
-              placeholder="Search posts..."
+              placeholder="Buscar posts..."
               className="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff2c72] focus:border-transparent"
               required
             />
@@ -71,24 +71,24 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               type="submit"
               className="px-6 py-3 bg-[#161e24] text-white rounded-md hover:bg-[#ff2c72] transition-colors duration-200"
             >
-              Search
+              Buscar
             </button>
           </form>
         </div>
 
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Cargando...</div>}>
           {searchTerm ? (
             posts.length > 0 ? (
               <PostGrid
                 posts={formattedPosts}
-                title={`Search Results for "${searchTerm}"`}
-                description={`Found ${posts.length} ${posts.length === 1 ? 'post' : 'posts'} matching your search`}
+                title={`Resultados de la búsqueda para "${searchTerm}"`}
+                description={`Encontrados ${posts.length} ${posts.length === 1 ? 'post' : 'posts'} que coinciden con tu búsqueda`}
               />
             ) : (
               <div className="text-center py-12">
-                <h2 className="text-2xl font-bold mb-4">No results found</h2>
+                <h2 className="text-2xl font-bold mb-4">No se encontraron resultados</h2>
                 <p className="text-gray-600">
-                  No posts found matching &quot;{searchTerm}&quot;. Try a different search term.
+                  No se encontraron posts que coincidan con &quot;{searchTerm}&quot;. Intenta con un término de búsqueda diferente.
                 </p>
               </div>
             )
@@ -96,7 +96,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             <div className="text-center py-12">
               <h2 className="text-2xl font-bold mb-4">Search Posts</h2>
               <p className="text-gray-600">
-                Enter a search term above to find posts.
+                Ingresa un término de búsqueda arriba para encontrar posts.
               </p>
             </div>
           )}
