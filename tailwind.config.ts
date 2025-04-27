@@ -104,6 +104,8 @@ const config: Config = {
               marginBottom: '2rem',
               border: '10px solid #81adcc',
               overflow: 'hidden',
+              maxWidth: '100%',
+              height: 'auto',
             },
             'a': {
               color: '#81adcc',
