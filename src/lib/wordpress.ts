@@ -1,9 +1,7 @@
 const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
 export async function getFeaturedPosts() {
-  try {
-    console.log('Fetching posts from WordPress API:', WORDPRESS_API_URL);
-    
+  try {    
     const res = await fetch(WORDPRESS_API_URL!, {
       method: 'POST',
       headers: {
@@ -61,7 +59,6 @@ export async function getFeaturedPosts() {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -69,8 +66,6 @@ export async function getFeaturedPosts() {
     }
 
     const posts = json.data?.posts?.nodes || [];
-    console.log('Processed posts:', posts);
-    
     return posts;
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -108,7 +103,6 @@ export async function getHeaderCategories() {
     }
 
     const json = await res.json();
-    console.log('WordPress Categories:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -178,8 +172,6 @@ export async function getRecommendedPosts() {
 
 export async function getHighlightPosts() {
   try {
-    console.log('Fetching highlight posts from WordPress API');
-    
     const res = await fetch(WORDPRESS_API_URL!, {
       method: 'POST',
       headers: {
@@ -223,7 +215,6 @@ export async function getHighlightPosts() {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response for highlight posts:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -231,8 +222,6 @@ export async function getHighlightPosts() {
     }
 
     const posts = json.data?.posts?.nodes || [];
-    console.log('Processed highlight posts:', posts);
-    
     return posts;
   } catch (error) {
     console.error('Error fetching highlight posts:', error);
@@ -242,8 +231,6 @@ export async function getHighlightPosts() {
 
 export async function getInspirationPosts() {
   try {
-    console.log('Fetching inspiration posts from WordPress API');
-    
     const res = await fetch(WORDPRESS_API_URL!, {
       method: 'POST',
       headers: {
@@ -284,7 +271,6 @@ export async function getInspirationPosts() {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response for inspiration posts:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -292,8 +278,6 @@ export async function getInspirationPosts() {
     }
 
     const posts = json.data?.posts?.nodes || [];
-    console.log('Processed inspiration posts:', posts);
-    
     return posts;
   } catch (error) {
     console.error('Error fetching inspiration posts:', error);
@@ -303,8 +287,6 @@ export async function getInspirationPosts() {
 
 export async function getPosts(category?: string) {
   try {
-    console.log('Fetching posts from WordPress API', category ? `for category: ${category}` : 'for all categories');
-    
     const query = category ? `
       query GetPostsByCategory($category: String!) {
         posts(
@@ -365,9 +347,6 @@ export async function getPosts(category?: string) {
         }
       }
     `;
-
-    console.log('GraphQL Query:', query);
-    console.log('Category variable:', category);
     
     const variables = category ? { category } : undefined;
     
@@ -388,7 +367,6 @@ export async function getPosts(category?: string) {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response for posts:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -396,8 +374,6 @@ export async function getPosts(category?: string) {
     }
 
     const posts = json.data?.posts?.nodes || [];
-    console.log('Processed posts:', posts);
-    
     return posts;
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -407,8 +383,6 @@ export async function getPosts(category?: string) {
 
 export async function searchPosts(searchTerm: string) {
   try {
-    console.log('Searching posts with term:', searchTerm);
-    
     const res = await fetch(WORDPRESS_API_URL!, {
       method: 'POST',
       headers: {
@@ -456,7 +430,6 @@ export async function searchPosts(searchTerm: string) {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response for search:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -464,8 +437,6 @@ export async function searchPosts(searchTerm: string) {
     }
 
     const posts = json.data?.posts?.nodes || [];
-    console.log('Processed search results:', posts);
-    
     return posts;
   } catch (error) {
     console.error('Error searching posts:', error);
@@ -475,8 +446,6 @@ export async function searchPosts(searchTerm: string) {
 
 export async function getPostBySlug(slug: string) {
   try {
-    console.log('Fetching post with slug:', slug);
-    
     const res = await fetch(WORDPRESS_API_URL!, {
       method: 'POST',
       headers: {
@@ -528,7 +497,6 @@ export async function getPostBySlug(slug: string) {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response for post:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -576,8 +544,6 @@ export async function testGraphQLSchema() {
     });
 
     const data = await response.json();
-    console.log('Available mutations:', data.data?.__schema?.mutationType?.fields);
-    console.log('Available types:', data.data?.__schema?.types);
     return data;
   } catch (error) {
     console.error('Error testing GraphQL schema:', error);
@@ -587,8 +553,6 @@ export async function testGraphQLSchema() {
 
 export async function getPostsByTag(tag?: string) {
   try {
-    console.log('Fetching posts from WordPress API', tag ? `for tag: ${tag}` : 'for all tags');
-    
     const query = tag ? `
       query GetPostsByTag($tag: String!) {
         posts(
@@ -661,9 +625,6 @@ export async function getPostsByTag(tag?: string) {
         }
       }
     `;
-
-    console.log('GraphQL Query:', query);
-    console.log('Tag variable:', tag);
     
     const variables = tag ? { tag } : undefined;
     
@@ -684,7 +645,6 @@ export async function getPostsByTag(tag?: string) {
     }
 
     const json = await res.json();
-    console.log('WordPress API Response for posts by tag:', json);
 
     if (json.errors) {
       console.error('WordPress GraphQL Error:', json.errors);
@@ -692,8 +652,6 @@ export async function getPostsByTag(tag?: string) {
     }
 
     const posts = json.data?.posts?.nodes || [];
-    console.log('Processed posts by tag:', posts);
-    
     return posts;
   } catch (error) {
     console.error('Error fetching posts by tag:', error);
