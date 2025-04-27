@@ -13,7 +13,7 @@ interface PostHeaderProps {
 
 export const PostHeader = ({ title, date, category, author, featuredImage }: PostHeaderProps) => {
   return (
-    <section>
+    <section className="mb-12">
       {featuredImage && (
         <div className="relative w-full h-[500px]">
           <Image

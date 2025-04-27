@@ -37,7 +37,7 @@ export default async function PostPage({
   }
 
   return (
-    <article className="w-full mx-auto px-0 pb-12">
+    <article className="w-full">
       <PostHeader 
         title={post.title}
         date={post.date}
@@ -45,11 +45,13 @@ export default async function PostPage({
         author={post.author?.node?.name || 'Anonymous'}
         featuredImage={post.featuredImage?.node}
       />
-      <PostContent content={post.content} />
-      {post.tags?.nodes && post.tags.nodes.length > 0 && (
-        <PostTags tags={post.tags.nodes} />
-      )}
-      <Newsletter />
+      <div className="container mx-auto px-4">
+        <PostContent content={post.content} />
+        {post.tags?.nodes && post.tags.nodes.length > 0 && (
+          <PostTags tags={post.tags.nodes} />
+        )}
+        <Newsletter />
+      </div>
     </article>
   );
 } 
