@@ -24,23 +24,23 @@ function SocialLink({ icon, href }: SocialLinkProps) {
   );
 }
 
-interface RSSLinkProps {
-  text: string;
-  href: string;
-}
+// interface RSSLinkProps {
+//   text: string;
+//   href: string;
+// }
 
-function RSSLink({ text, href }: RSSLinkProps) {
-  return (
-    <a href={href} target="_blank" className="flex items-center gap-2 text-[#161e24] hover:text-[#FF80AA] transition-colors">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 11a9 9 0 0 1 9 9" />
-        <path d="M4 4a16 16 0 0 1 16 16" />
-        <circle cx="5" cy="19" r="1" />
-      </svg>
-      <span className="text-[20px] font-light">{text}</span>
-    </a>
-  );
-}
+// function RSSLink({ text, href }: RSSLinkProps) {
+//   return (
+//     <a href={href} target="_blank" className="flex items-center gap-2 text-[#161e24] hover:text-[#FF80AA] transition-colors">
+//       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+//         <path d="M4 11a9 9 0 0 1 9 9" />
+//         <path d="M4 4a16 16 0 0 1 16 16" />
+//         <circle cx="5" cy="19" r="1" />
+//       </svg>
+//       <span className="text-[20px] font-light">{text}</span>
+//     </a>
+//   );
+// }
 
 export function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,18 +51,18 @@ export function Footer() {
     { icon: 'website', href: 'https://luisvelito.com' }
   ];
 
-  const rssLinks: RSSLinkProps[] = [
-    { text: 'Inspiration', href: '#' },
-    { text: 'Design', href: '#' },
-    { text: 'Sidenotes', href: '#' },
-    { text: 'All feeds bundled', href: '#' }
-  ];
+  // const rssLinks: RSSLinkProps[] = [
+  //   { text: 'Artículos', href: '/rss/articles' },
+  //   { text: 'Inspiración', href: '/rss/inspiration' },
+  //   { text: 'Tutoriales', href: '/rss/tutorial' },
+  //   { text: 'Todos juntos', href: '/rss.xml' }
+  // ];
 
   return (
     <footer className="bg-[#fbfaf8]">
       <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-9">
+          <div className="md:col-span-12">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 relative">
                 <Image
@@ -105,14 +105,14 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-3">
+          {/* <div className="md:col-span-3">
             <h1 className="text-[30px] text-[#c6c4c0] font-thin mb-5">RSS Feed</h1>
             <div className="space-y-4">
               {rssLinks.map((link, index) => (
                 <RSSLink key={index} {...link} />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
