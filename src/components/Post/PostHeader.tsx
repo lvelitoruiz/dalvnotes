@@ -31,9 +31,9 @@ export const PostHeader = ({ title, date, category, author, featuredImage }: Pos
           <div className="text-center text-[#00000059] font-bold lg:pt-8 pt-4 uppercase flex items-center justify-center gap-4">
             <span>{category}</span>
             <span>•</span>
-            <time>{date}</time>
+            <time dateTime={date}>{date}</time>
             <span>•</span>
-            <span>by {author}</span>
+            <span>por {author}</span>
           </div>
         </div>
       </div>

@@ -36,11 +36,18 @@ export default async function PostPage({
     notFound();
   }
 
+  // Formatear la fecha
+  const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
   return (
     <article className="w-full">
       <PostHeader 
         title={post.title}
-        date={post.date}
+        date={formattedDate}
         category={post.categories?.nodes[0]?.name || 'Uncategorized'}
         author={post.author?.node?.name || 'Anonymous'}
         featuredImage={post.featuredImage?.node}
