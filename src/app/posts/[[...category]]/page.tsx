@@ -67,12 +67,12 @@ export default async function PostsPage({ params }: PageProps) {
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-20">
           <h1 className="text-4xl font-bold mb-4">
-            {category ? `No posts found in ${decodedCategory}` : 'No posts found'}
+            {category ? `No posts en ${decodedCategory}` : 'No encontramos posts'}
           </h1>
           <p className="text-lg text-gray-600">
             {category 
-              ? `We couldn't find any posts in the ${decodedCategory} category. Please try another category or check back later.`
-              : 'We haven\'t published any posts yet. Please check back later.'}
+              ? `No encontramos ningún post en la categoría ${decodedCategory}. Por favor, intenta con otra categoría o vuelve más tarde.`
+              : 'No hemos publicado ningún post todavía. Por favor, vuelve más tarde.'}
           </p>
         </div>
       </main>

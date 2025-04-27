@@ -583,4 +583,120 @@ export async function testGraphQLSchema() {
     console.error('Error testing GraphQL schema:', error);
     return null;
   }
+}
+
+export async function getPostsByTag(tag?: string) {
+  try {
+    console.log('Fetching posts from WordPress API', tag ? `for tag: ${tag}` : 'for all tags');
+    
+    const query = tag ? `
+      query GetPostsByTag($tag: String!) {
+        posts(
+          first: 50,
+          where: { 
+            orderby: { field: DATE, order: DESC }
+            tag: $tag
+          }
+        ) {
+          nodes {
+            id
+            title
+            date
+            excerpt
+            slug
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+            tags {
+              nodes {
+                name
+                slug
+              }
+            }
+            featuredImage {
+              node {
+                sourceUrl
+                altText
+              }
+            }
+          }
+        }
+      }
+    ` : `
+      query GetAllPosts {
+        posts(
+          first: 50,
+          where: { 
+            orderby: { field: DATE, order: DESC }
+          }
+        ) {
+          nodes {
+            id
+            title
+            date
+            excerpt
+            slug
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+            tags {
+              nodes {
+                name
+                slug
+              }
+            }
+            featuredImage {
+              node {
+                sourceUrl
+                altText
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    console.log('GraphQL Query:', query);
+    console.log('Tag variable:', tag);
+    
+    const variables = tag ? { tag } : undefined;
+    
+    const res = await fetch(WORDPRESS_API_URL!, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        variables
+      }),
+    });
+
+    if (!res.ok) {
+      console.error('WordPress API Error:', res.status, res.statusText);
+      return [];
+    }
+
+    const json = await res.json();
+    console.log('WordPress API Response for posts by tag:', json);
+
+    if (json.errors) {
+      console.error('WordPress GraphQL Error:', json.errors);
+      return [];
+    }
+
+    const posts = json.data?.posts?.nodes || [];
+    console.log('Processed posts by tag:', posts);
+    
+    return posts;
+  } catch (error) {
+    console.error('Error fetching posts by tag:', error);
+    return [];
+  }
 } 
