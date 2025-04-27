@@ -77,7 +77,7 @@ export function Hero() {
           <div className="text-center md:text-left space-y-4">
             <p className="text-2xl text-foreground font-thin leading-[2]">
               ¡Hola, soy Luis Velito! Explora mis{" "}
-              <StyledLink href="/posts/development" color="#786596">
+              <StyledLink href="/posts/articles" color="#786596">
                 artículos de desarrollo
               </StyledLink>{" "}
               y <StyledLink href="/posts/tutorial">tutoriales</StyledLink>{" "}
@@ -98,7 +98,7 @@ export function Hero() {
                 encuentra inspiración
               </StyledLink>{" "}
               para llevar tus creaciones al siguiente nivel. Explora mis{" "}
-              <StyledLink href="/resources" color="#161e24">
+              <StyledLink href="/posts/inspiration" color="#161e24">
                 recursos seleccionados
               </StyledLink>
               , y conoce mis perspectivas sobre tendencias tecnológicas, diseño,
