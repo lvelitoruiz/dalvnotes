@@ -66,7 +66,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row gap-8">
               <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 relative">
                 <Image
-                  src="/img/avatar.png"
+                  src="/img/retrato.png"
                   alt="avatar"
                   fill
                   className="object-cover"

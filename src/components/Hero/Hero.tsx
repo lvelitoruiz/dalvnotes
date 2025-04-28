@@ -64,7 +64,7 @@ export function Hero() {
       <div className="flex flex-col md:flex-row items-center gap-8">
         <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 relative">
           <Image
-            src="/img/avatar.png"
+            src="/img/retrato.png"
             alt="avatar"
             fill
             className="object-cover"
