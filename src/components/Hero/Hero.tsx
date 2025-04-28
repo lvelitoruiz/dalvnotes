@@ -5,7 +5,6 @@ interface LinkProps {
   children: React.ReactNode;
   color?: string;
 }
-
 const StyledLink = ({ href, children, color = "#9283a8" }: LinkProps) => (
   <a
     href={href}
