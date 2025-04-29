@@ -114,6 +114,55 @@ const config: Config = {
                 textDecoration: 'underline',
               },
             },
+            // Estilos para videos
+            'iframe, video': {
+              width: '80%',
+              margin: '2rem 0',
+              display: 'block',
+              borderRadius: '0.75rem',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            },
+            // Estilos para tablas
+            '.tableContainer': {
+              width: '100%',
+              overflowX: 'auto',
+              marginTop: '1.5rem',
+              marginBottom: '1.5rem',
+              '&::-webkit-scrollbar': {
+                height: '8px',
+              },
+              '&::-webkit-scrollbar-track': {
+                backgroundColor: '#f1f5f9',
+                borderRadius: '4px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#81adcc',
+                borderRadius: '4px',
+                '&:hover': {
+                  backgroundColor: '#7e4b71',
+                },
+              },
+            },
+            'table': {
+              width: '100%',
+              borderCollapse: 'collapse',
+              minWidth: '600px',
+            },
+            'thead': {
+              borderBottom: '2px solid #81adcc',
+            },
+            'th': {
+              padding: '0.75rem',
+              textAlign: 'left',
+              color: '#81adcc',
+              fontWeight: '600',
+              whiteSpace: 'nowrap',
+            },
+            'td': {
+              padding: '0.75rem',
+              borderBottom: '1px solid #e2e8f0',
+              whiteSpace: 'nowrap',
+            },
           },
         },
       },
