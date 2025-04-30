@@ -116,8 +116,9 @@ const config: Config = {
             },
             // Estilos para videos
             'iframe, video': {
-              width: '80%',
-              margin: '2rem 0',
+              width: '100%',
+              maxWidth: '90%',
+              margin: '2rem auto',
               display: 'block',
               borderRadius: '0.75rem',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
