@@ -23,7 +23,6 @@ export const PostContent = ({ content }: PostContentProps) => {
     }
   }, [content]);
 
-  
   return (
     <div className="container mx-auto px-4 py-10 max-w-[960px]">
       <div 
