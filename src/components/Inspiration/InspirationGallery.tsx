@@ -29,7 +29,7 @@ interface InspirationItemProps {
 
 function InspirationItem({ imageUrl, title, author, slug }: InspirationItemProps) {
   return (
-    <Link href={`/posts/${slug}`} className="group bg-[#fbfaf8]">
+    <Link href={`/post/${slug}`} className="group bg-[#fbfaf8]">
       <div className="relative aspect-square overflow-hidden">
         <Image 
           src={imageUrl} 
