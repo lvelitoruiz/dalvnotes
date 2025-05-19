@@ -17,9 +17,12 @@ export const PostContent = ({ content }: PostContentProps) => {
     for (let i = tables.length - 1; i >= 0; i--) {
       const table = tables[i];
       const wrapper = document.createElement('div');
-      wrapper.className = 'table-container';
+      wrapper.className = 'table-container overflow-x-auto w-full max-w-full';
       table.parentNode?.insertBefore(wrapper, table);
       wrapper.appendChild(table);
+      
+      // Asegurarnos que la tabla tenga el ancho mínimo correcto
+      table.className = 'min-w-[600px]';
     }
   }, [content]);
 

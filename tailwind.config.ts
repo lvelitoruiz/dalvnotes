@@ -124,7 +124,7 @@ const config: Config = {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
             },
             // Estilos para tablas
-            '.tableContainer': {
+            '.table-container': {
               width: '100%',
               overflowX: 'auto',
               marginTop: '1.5rem',
@@ -145,9 +145,9 @@ const config: Config = {
               },
             },
             'table': {
-              width: '100%',
-              borderCollapse: 'collapse',
               minWidth: '600px',
+              borderCollapse: 'collapse',
+              wordBreak: 'break-word',
             },
             'thead': {
               borderBottom: '2px solid #81adcc',
@@ -158,11 +158,23 @@ const config: Config = {
               color: '#81adcc',
               fontWeight: '600',
               whiteSpace: 'nowrap',
+              '&[data-col-size="sm"]': {
+                width: '15%',
+              },
+              '&[data-col-size="md"]': {
+                width: '25%',
+              },
             },
             'td': {
               padding: '0.75rem',
               borderBottom: '1px solid #e2e8f0',
               whiteSpace: 'nowrap',
+              '&[data-col-size="sm"]': {
+                width: '15%',
+              },
+              '&[data-col-size="md"]': {
+                width: '25%',
+              },
             },
           },
         },
